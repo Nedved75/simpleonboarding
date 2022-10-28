@@ -4,7 +4,7 @@ package relay.onboarding.v1;
 
 import "google/protobuf/any.proto";
 import "relay/models.proto";
-import "relay/onboarding/paymentmethods/ppro.proto";
+import "relay/onboarding/paymentmethods/v1/ppro.proto";
 
 option csharp_namespace = "Relay.Onboarding.V1";
 
