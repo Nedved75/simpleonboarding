@@ -40,8 +40,10 @@ message CompletelyNew {
   oneof paymentselection {
     string InitReq = 3;
     string InitRes = 4;
-    //paymentmethods.BusinessDetails business_details = 5;
-    relay.PaymentMethod payment_method = 6;
+    relay.BusinessDetails business_details = 5;
+    relay.onboarding.v1.paymentmethods paymet = 6;
+
+    relay.PaymentMethod payment_method = 7;
   }
 
 }
