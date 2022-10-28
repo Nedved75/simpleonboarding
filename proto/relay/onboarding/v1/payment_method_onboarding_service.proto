@@ -24,8 +24,8 @@ enum PaymentMethodOnboardingStatus {
 message CompletelyNew {
   string description = 1;
   oneof paymentselection {
-    message InitializeRequest = 2;
-    message InitializeResponse = 3;
+    string InitReq = 2;
+    string InitRes = 3;
   }
 
 }
