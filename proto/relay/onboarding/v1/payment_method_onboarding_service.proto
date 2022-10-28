@@ -29,6 +29,7 @@ message CompletelyNew {
     string InitReq = 2;
     string InitRes = 3;
     //message InitializeRequestData = 4;
+    SubMessage sub_message = 9;
   }
 
 }
