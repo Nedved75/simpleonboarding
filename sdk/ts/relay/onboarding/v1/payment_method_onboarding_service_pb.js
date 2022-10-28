@@ -21,6 +21,8 @@ var google_protobuf_any_pb = require('google-protobuf/google/protobuf/any_pb.js'
 goog.object.extend(proto, google_protobuf_any_pb);
 var relay_models_pb = require('../../../relay/models_pb.js');
 goog.object.extend(proto, relay_models_pb);
+var relay_onboarding_v1_paymentmethods_ppro_pb = require('../../../relay/onboarding/v1/paymentmethods/ppro_pb.js');
+goog.object.extend(proto, relay_onboarding_v1_paymentmethods_ppro_pb);
 goog.exportSymbol('proto.relay.onboarding.v1.CompletelyNew', null, global);
 goog.exportSymbol('proto.relay.onboarding.v1.CompletelyNew.PaymentselectionCase', null, global);
 goog.exportSymbol('proto.relay.onboarding.v1.GetRequest', null, global);

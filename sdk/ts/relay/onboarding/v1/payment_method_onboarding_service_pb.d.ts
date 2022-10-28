@@ -6,6 +6,7 @@
 import * as jspb from "google-protobuf";
 import * as google_protobuf_any_pb from "google-protobuf/google/protobuf/any_pb";
 import * as relay_models_pb from "../../../relay/models_pb";
+import * as relay_onboarding_v1_paymentmethods_ppro_pb from "../../../relay/onboarding/v1/paymentmethods/ppro_pb";
 
 export class CompletelyNew extends jspb.Message {
   getDescription(): string;
