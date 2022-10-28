@@ -28,7 +28,7 @@ message CompletelyNew {
   oneof paymentselection {
     string InitReq = 2;
     string InitRes = 3;
-    message InitializeRequestData = 4;
+    //message InitializeRequestData = 4;
   }
 
 }
