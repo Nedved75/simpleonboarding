@@ -16,6 +16,8 @@ service PaymentMethodOnboarding {
   rpc Nested (TryNested) returns (ResNested) {}
 }
 
+
+
 enum PaymentMethodOnboardingStatus {
   PENDING = 0;
   ACTIVATED = 1;
@@ -24,13 +26,13 @@ enum PaymentMethodOnboardingStatus {
   TERMINATED = 4;
 }
 
-
+message TryNested {
+  string Sthg = 1;
+}
 
 message CompletelyNew {
   string description = 1;
-  message TryNested {
-    string Sthg = 1;
-  }
+  //message TryNested
   oneof paymentselection {
     string InitReq = 2;
     string InitRes = 3;
