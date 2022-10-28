@@ -11,6 +11,7 @@ service PaymentMethodOnboarding {
   rpc Initialize (InitializeRequest) returns (InitializeResponse) {}
   rpc Update (UpdateRequest) returns (UpdateResponse) {}
   rpc Get (GetRequest) returns (GetResponse) {}
+  rpc New (CompletelyNew) returns (NewIndeed) {}
 }
 
 enum PaymentMethodOnboardingStatus {
@@ -28,6 +29,10 @@ message CompletelyNew {
     string InitRes = 3;
   }
 
+}
+
+message NewIndeed {
+  string description = 1;
 }
 
 message InitializeRequest {
