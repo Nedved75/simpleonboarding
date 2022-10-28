@@ -30,12 +30,17 @@ message TryNested {
   string Sthg = 1;
 }
 
+message ResNested {
+  string Sthg = 1;
+}
+
 message CompletelyNew {
   string description = 1;
-  //message TryNested
+  TryNested try_nested = 2;
   oneof paymentselection {
-    string InitReq = 2;
-    string InitRes = 3;
+    string InitReq = 3;
+    string InitRes = 4;
+    BusinessDetails business_details = 5;
     //message InitializeRequestData = 4;
     //SubMessage sub_message = 9;
   }
