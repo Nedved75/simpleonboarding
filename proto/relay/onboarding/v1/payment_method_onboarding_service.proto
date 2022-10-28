@@ -13,6 +13,7 @@ service PaymentMethodOnboarding {
   rpc Update (UpdateRequest) returns (UpdateResponse) {}
   rpc Get (GetRequest) returns (GetResponse) {}
   rpc New (CompletelyNew) returns (NewIndeed) {}
+  rpc Nested (TryNested) returns (ResNested) {}
 }
 
 enum PaymentMethodOnboardingStatus {
@@ -23,13 +24,18 @@ enum PaymentMethodOnboardingStatus {
   TERMINATED = 4;
 }
 
+
+
 message CompletelyNew {
   string description = 1;
+  message TryNested {
+    string Sthg = 1;
+  }
   oneof paymentselection {
     string InitReq = 2;
     string InitRes = 3;
     //message InitializeRequestData = 4;
-    SubMessage sub_message = 9;
+    //SubMessage sub_message = 9;
   }
 
 }
