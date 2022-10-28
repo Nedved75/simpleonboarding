@@ -48,6 +48,15 @@ PaymentMethodOnboarding.New = {
   responseType: relay_onboarding_v1_payment_method_onboarding_service_pb.NewIndeed
 };
 
+PaymentMethodOnboarding.Nested = {
+  methodName: "Nested",
+  service: PaymentMethodOnboarding,
+  requestStream: false,
+  responseStream: false,
+  requestType: relay_onboarding_v1_payment_method_onboarding_service_pb.TryNested,
+  responseType: relay_onboarding_v1_payment_method_onboarding_service_pb.ResNested
+};
+
 exports.PaymentMethodOnboarding = PaymentMethodOnboarding;
 
 function PaymentMethodOnboardingClient(serviceHost, options) {
@@ -153,6 +162,37 @@ PaymentMethodOnboardingClient.prototype.new = function pb_new(requestMessage, me
     callback = arguments[1];
   }
   var client = grpc.unary(PaymentMethodOnboarding.New, {
+    request: requestMessage,
+    host: this.serviceHost,
+    metadata: metadata,
+    transport: this.options.transport,
+    debug: this.options.debug,
+    onEnd: function (response) {
+      if (callback) {
+        if (response.status !== grpc.Code.OK) {
+          var err = new Error(response.statusMessage);
+          err.code = response.status;
+          err.metadata = response.trailers;
+          callback(err, null);
+        } else {
+          callback(null, response.message);
+        }
+      }
+    }
+  });
+  return {
+    cancel: function () {
+      callback = null;
+      client.close();
+    }
+  };
+};
+
+PaymentMethodOnboardingClient.prototype.nested = function nested(requestMessage, metadata, callback) {
+  if (arguments.length === 2) {
+    callback = arguments[1];
+  }
+  var client = grpc.unary(PaymentMethodOnboarding.Nested, {
     request: requestMessage,
     host: this.serviceHost,
     metadata: metadata,
