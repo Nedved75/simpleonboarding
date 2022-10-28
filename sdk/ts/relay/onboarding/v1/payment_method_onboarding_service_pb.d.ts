@@ -8,9 +8,54 @@ import * as google_protobuf_any_pb from "google-protobuf/google/protobuf/any_pb"
 import * as relay_models_pb from "../../../relay/models_pb";
 import * as relay_onboarding_v1_paymentmethods_ppro_pb from "../../../relay/onboarding/v1/paymentmethods/ppro_pb";
 
+export class TryNested extends jspb.Message {
+  getSthg(): string;
+  setSthg(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): TryNested.AsObject;
+  static toObject(includeInstance: boolean, msg: TryNested): TryNested.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: TryNested, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): TryNested;
+  static deserializeBinaryFromReader(message: TryNested, reader: jspb.BinaryReader): TryNested;
+}
+
+export namespace TryNested {
+  export type AsObject = {
+    sthg: string,
+  }
+}
+
+export class ResNested extends jspb.Message {
+  getSthg(): string;
+  setSthg(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): ResNested.AsObject;
+  static toObject(includeInstance: boolean, msg: ResNested): ResNested.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: ResNested, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): ResNested;
+  static deserializeBinaryFromReader(message: ResNested, reader: jspb.BinaryReader): ResNested;
+}
+
+export namespace ResNested {
+  export type AsObject = {
+    sthg: string,
+  }
+}
+
 export class CompletelyNew extends jspb.Message {
   getDescription(): string;
   setDescription(value: string): void;
+
+  hasTryNested(): boolean;
+  clearTryNested(): void;
+  getTryNested(): TryNested | undefined;
+  setTryNested(value?: TryNested): void;
 
   hasInitreq(): boolean;
   clearInitreq(): void;
@@ -21,6 +66,11 @@ export class CompletelyNew extends jspb.Message {
   clearInitres(): void;
   getInitres(): string;
   setInitres(value: string): void;
+
+  hasPaymentMethod(): boolean;
+  clearPaymentMethod(): void;
+  getPaymentMethod(): relay_models_pb.PaymentMethodMap[keyof relay_models_pb.PaymentMethodMap];
+  setPaymentMethod(value: relay_models_pb.PaymentMethodMap[keyof relay_models_pb.PaymentMethodMap]): void;
 
   getPaymentselectionCase(): CompletelyNew.PaymentselectionCase;
   serializeBinary(): Uint8Array;
@@ -36,14 +86,17 @@ export class CompletelyNew extends jspb.Message {
 export namespace CompletelyNew {
   export type AsObject = {
     description: string,
+    tryNested?: TryNested.AsObject,
     initreq: string,
     initres: string,
+    paymentMethod: relay_models_pb.PaymentMethodMap[keyof relay_models_pb.PaymentMethodMap],
   }
 
   export enum PaymentselectionCase {
     PAYMENTSELECTION_NOT_SET = 0,
-    INITREQ = 2,
-    INITRES = 3,
+    INITREQ = 3,
+    INITRES = 4,
+    PAYMENT_METHOD = 6,
   }
 }
 

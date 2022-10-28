@@ -42,12 +42,22 @@ type PaymentMethodOnboardingNew = {
   readonly responseType: typeof relay_onboarding_v1_payment_method_onboarding_service_pb.NewIndeed;
 };
 
+type PaymentMethodOnboardingNested = {
+  readonly methodName: string;
+  readonly service: typeof PaymentMethodOnboarding;
+  readonly requestStream: false;
+  readonly responseStream: false;
+  readonly requestType: typeof relay_onboarding_v1_payment_method_onboarding_service_pb.TryNested;
+  readonly responseType: typeof relay_onboarding_v1_payment_method_onboarding_service_pb.ResNested;
+};
+
 export class PaymentMethodOnboarding {
   static readonly serviceName: string;
   static readonly Initialize: PaymentMethodOnboardingInitialize;
   static readonly Update: PaymentMethodOnboardingUpdate;
   static readonly Get: PaymentMethodOnboardingGet;
   static readonly New: PaymentMethodOnboardingNew;
+  static readonly Nested: PaymentMethodOnboardingNested;
 }
 
 export type ServiceError = { message: string, code: number; metadata: grpc.Metadata }
@@ -117,6 +127,15 @@ export class PaymentMethodOnboardingClient {
   new(
     requestMessage: relay_onboarding_v1_payment_method_onboarding_service_pb.CompletelyNew,
     callback: (error: ServiceError|null, responseMessage: relay_onboarding_v1_payment_method_onboarding_service_pb.NewIndeed|null) => void
+  ): UnaryResponse;
+  nested(
+    requestMessage: relay_onboarding_v1_payment_method_onboarding_service_pb.TryNested,
+    metadata: grpc.Metadata,
+    callback: (error: ServiceError|null, responseMessage: relay_onboarding_v1_payment_method_onboarding_service_pb.ResNested|null) => void
+  ): UnaryResponse;
+  nested(
+    requestMessage: relay_onboarding_v1_payment_method_onboarding_service_pb.TryNested,
+    callback: (error: ServiceError|null, responseMessage: relay_onboarding_v1_payment_method_onboarding_service_pb.ResNested|null) => void
   ): UnaryResponse;
 }
 
