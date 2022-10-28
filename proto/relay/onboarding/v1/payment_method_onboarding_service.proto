@@ -40,9 +40,7 @@ message CompletelyNew {
   oneof paymentselection {
     string InitReq = 3;
     string InitRes = 4;
-    BusinessDetails business_details = 5;
-    //message InitializeRequestData = 4;
-    //SubMessage sub_message = 9;
+    paymentmethods.BusinessDetails business_details = 5;
   }
 
 }
