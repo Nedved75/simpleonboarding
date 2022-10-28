@@ -4,7 +4,7 @@ package relay.onboarding.v1;
 
 import "google/protobuf/any.proto";
 import "relay/models.proto";
-import "paymentmethods/ppro.proto";
+import "relay/onboarding/v1/paymentmethods/ppro.proto";
 
 option csharp_namespace = "Relay.Onboarding.V1";
 
@@ -40,7 +40,8 @@ message CompletelyNew {
   oneof paymentselection {
     string InitReq = 3;
     string InitRes = 4;
-    paymentmethods.BusinessDetails business_details = 5;
+    //paymentmethods.BusinessDetails business_details = 5;
+    relay.PaymentMethod payment_method = 6;
   }
 
 }
