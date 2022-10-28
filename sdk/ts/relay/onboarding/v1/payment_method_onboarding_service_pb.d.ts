@@ -7,6 +7,45 @@ import * as jspb from "google-protobuf";
 import * as google_protobuf_any_pb from "google-protobuf/google/protobuf/any_pb";
 import * as relay_models_pb from "../../../relay/models_pb";
 
+export class CompletelyNew extends jspb.Message {
+  getDescription(): string;
+  setDescription(value: string): void;
+
+  hasInitreq(): boolean;
+  clearInitreq(): void;
+  getInitreq(): string;
+  setInitreq(value: string): void;
+
+  hasInitres(): boolean;
+  clearInitres(): void;
+  getInitres(): string;
+  setInitres(value: string): void;
+
+  getPaymentselectionCase(): CompletelyNew.PaymentselectionCase;
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): CompletelyNew.AsObject;
+  static toObject(includeInstance: boolean, msg: CompletelyNew): CompletelyNew.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: CompletelyNew, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): CompletelyNew;
+  static deserializeBinaryFromReader(message: CompletelyNew, reader: jspb.BinaryReader): CompletelyNew;
+}
+
+export namespace CompletelyNew {
+  export type AsObject = {
+    description: string,
+    initreq: string,
+    initres: string,
+  }
+
+  export enum PaymentselectionCase {
+    PAYMENTSELECTION_NOT_SET = 0,
+    INITREQ = 2,
+    INITRES = 3,
+  }
+}
+
 export class InitializeRequest extends jspb.Message {
   getReference(): string;
   setReference(value: string): void;
