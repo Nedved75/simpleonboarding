@@ -21,6 +21,15 @@ enum PaymentMethodOnboardingStatus {
   TERMINATED = 4;
 }
 
+message CompletelyNew {
+  string description = 1;
+  oneof paymentselection {
+    message InitializeRequest = 2;
+    message InitializeResponse = 3;
+  }
+
+}
+
 message InitializeRequest {
   // Regex: ^.{1,36}$
   string reference = 1;
