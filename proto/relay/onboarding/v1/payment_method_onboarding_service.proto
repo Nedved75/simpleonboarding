@@ -41,7 +41,7 @@ message CompletelyNew {
     string InitReq = 3;
     string InitRes = 4;
     //relay.BusinessDetails business_details = 5;
-    relay.onboarding.v1.paymentmethods.BusinessDetails paymet = 6;
+    relay.onboarding.v1.paymentmethods.ppro.BusinessDetails paymet = 6;
 
     relay.PaymentMethod payment_method = 7;
   }
