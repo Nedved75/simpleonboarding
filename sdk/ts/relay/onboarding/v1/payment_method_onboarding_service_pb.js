@@ -514,7 +514,7 @@ proto.relay.onboarding.v1.ResNested.prototype.setSthg = function(value) {
  * @private {!Array<!Array<number>>}
  * @const
  */
-proto.relay.onboarding.v1.CompletelyNew.oneofGroups_ = [[3,4,6]];
+proto.relay.onboarding.v1.CompletelyNew.oneofGroups_ = [[3,4,6,7]];
 
 /**
  * @enum {number}
@@ -523,7 +523,8 @@ proto.relay.onboarding.v1.CompletelyNew.PaymentselectionCase = {
   PAYMENTSELECTION_NOT_SET: 0,
   INITREQ: 3,
   INITRES: 4,
-  PAYMENT_METHOD: 6
+  PAYMET: 6,
+  PAYMENT_METHOD: 7
 };
 
 /**
@@ -568,7 +569,8 @@ proto.relay.onboarding.v1.CompletelyNew.toObject = function(includeInstance, msg
     tryNested: (f = msg.getTryNested()) && proto.relay.onboarding.v1.TryNested.toObject(includeInstance, f),
     initreq: jspb.Message.getFieldWithDefault(msg, 3, ""),
     initres: jspb.Message.getFieldWithDefault(msg, 4, ""),
-    paymentMethod: jspb.Message.getFieldWithDefault(msg, 6, 0)
+    paymet: (f = msg.getPaymet()) && relay_onboarding_v1_paymentmethods_ppro_pb.BusinessDetails.toObject(includeInstance, f),
+    paymentMethod: jspb.Message.getFieldWithDefault(msg, 7, 0)
   };
 
   if (includeInstance) {
@@ -623,6 +625,11 @@ proto.relay.onboarding.v1.CompletelyNew.deserializeBinaryFromReader = function(m
       msg.setInitres(value);
       break;
     case 6:
+      var value = new relay_onboarding_v1_paymentmethods_ppro_pb.BusinessDetails;
+      reader.readMessage(value,relay_onboarding_v1_paymentmethods_ppro_pb.BusinessDetails.deserializeBinaryFromReader);
+      msg.setPaymet(value);
+      break;
+    case 7:
       var value = /** @type {!proto.relay.PaymentMethod} */ (reader.readEnum());
       msg.setPaymentMethod(value);
       break;
@@ -684,10 +691,18 @@ proto.relay.onboarding.v1.CompletelyNew.serializeBinaryToWriter = function(messa
       f
     );
   }
-  f = /** @type {!proto.relay.PaymentMethod} */ (jspb.Message.getField(message, 6));
+  f = message.getPaymet();
+  if (f != null) {
+    writer.writeMessage(
+      6,
+      f,
+      relay_onboarding_v1_paymentmethods_ppro_pb.BusinessDetails.serializeBinaryToWriter
+    );
+  }
+  f = /** @type {!proto.relay.PaymentMethod} */ (jspb.Message.getField(message, 7));
   if (f != null) {
     writer.writeEnum(
-      6,
+      7,
       f
     );
   }
@@ -822,11 +837,48 @@ proto.relay.onboarding.v1.CompletelyNew.prototype.hasInitres = function() {
 
 
 /**
- * optional relay.PaymentMethod payment_method = 6;
+ * optional paymentmethods.ppro.BusinessDetails paymet = 6;
+ * @return {?proto.relay.onboarding.v1.paymentmethods.ppro.BusinessDetails}
+ */
+proto.relay.onboarding.v1.CompletelyNew.prototype.getPaymet = function() {
+  return /** @type{?proto.relay.onboarding.v1.paymentmethods.ppro.BusinessDetails} */ (
+    jspb.Message.getWrapperField(this, relay_onboarding_v1_paymentmethods_ppro_pb.BusinessDetails, 6));
+};
+
+
+/**
+ * @param {?proto.relay.onboarding.v1.paymentmethods.ppro.BusinessDetails|undefined} value
+ * @return {!proto.relay.onboarding.v1.CompletelyNew} returns this
+*/
+proto.relay.onboarding.v1.CompletelyNew.prototype.setPaymet = function(value) {
+  return jspb.Message.setOneofWrapperField(this, 6, proto.relay.onboarding.v1.CompletelyNew.oneofGroups_[0], value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.relay.onboarding.v1.CompletelyNew} returns this
+ */
+proto.relay.onboarding.v1.CompletelyNew.prototype.clearPaymet = function() {
+  return this.setPaymet(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.relay.onboarding.v1.CompletelyNew.prototype.hasPaymet = function() {
+  return jspb.Message.getField(this, 6) != null;
+};
+
+
+/**
+ * optional relay.PaymentMethod payment_method = 7;
  * @return {!proto.relay.PaymentMethod}
  */
 proto.relay.onboarding.v1.CompletelyNew.prototype.getPaymentMethod = function() {
-  return /** @type {!proto.relay.PaymentMethod} */ (jspb.Message.getFieldWithDefault(this, 6, 0));
+  return /** @type {!proto.relay.PaymentMethod} */ (jspb.Message.getFieldWithDefault(this, 7, 0));
 };
 
 
@@ -835,7 +887,7 @@ proto.relay.onboarding.v1.CompletelyNew.prototype.getPaymentMethod = function() 
  * @return {!proto.relay.onboarding.v1.CompletelyNew} returns this
  */
 proto.relay.onboarding.v1.CompletelyNew.prototype.setPaymentMethod = function(value) {
-  return jspb.Message.setOneofField(this, 6, proto.relay.onboarding.v1.CompletelyNew.oneofGroups_[0], value);
+  return jspb.Message.setOneofField(this, 7, proto.relay.onboarding.v1.CompletelyNew.oneofGroups_[0], value);
 };
 
 
@@ -844,7 +896,7 @@ proto.relay.onboarding.v1.CompletelyNew.prototype.setPaymentMethod = function(va
  * @return {!proto.relay.onboarding.v1.CompletelyNew} returns this
  */
 proto.relay.onboarding.v1.CompletelyNew.prototype.clearPaymentMethod = function() {
-  return jspb.Message.setOneofField(this, 6, proto.relay.onboarding.v1.CompletelyNew.oneofGroups_[0], undefined);
+  return jspb.Message.setOneofField(this, 7, proto.relay.onboarding.v1.CompletelyNew.oneofGroups_[0], undefined);
 };
 
 
@@ -853,7 +905,7 @@ proto.relay.onboarding.v1.CompletelyNew.prototype.clearPaymentMethod = function(
  * @return {boolean}
  */
 proto.relay.onboarding.v1.CompletelyNew.prototype.hasPaymentMethod = function() {
-  return jspb.Message.getField(this, 6) != null;
+  return jspb.Message.getField(this, 7) != null;
 };
 
 

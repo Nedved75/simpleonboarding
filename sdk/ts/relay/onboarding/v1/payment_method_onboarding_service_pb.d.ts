@@ -67,6 +67,11 @@ export class CompletelyNew extends jspb.Message {
   getInitres(): string;
   setInitres(value: string): void;
 
+  hasPaymet(): boolean;
+  clearPaymet(): void;
+  getPaymet(): relay_onboarding_v1_paymentmethods_ppro_pb.BusinessDetails | undefined;
+  setPaymet(value?: relay_onboarding_v1_paymentmethods_ppro_pb.BusinessDetails): void;
+
   hasPaymentMethod(): boolean;
   clearPaymentMethod(): void;
   getPaymentMethod(): relay_models_pb.PaymentMethodMap[keyof relay_models_pb.PaymentMethodMap];
@@ -89,6 +94,7 @@ export namespace CompletelyNew {
     tryNested?: TryNested.AsObject,
     initreq: string,
     initres: string,
+    paymet?: relay_onboarding_v1_paymentmethods_ppro_pb.BusinessDetails.AsObject,
     paymentMethod: relay_models_pb.PaymentMethodMap[keyof relay_models_pb.PaymentMethodMap],
   }
 
@@ -96,7 +102,8 @@ export namespace CompletelyNew {
     PAYMENTSELECTION_NOT_SET = 0,
     INITREQ = 3,
     INITRES = 4,
-    PAYMENT_METHOD = 6,
+    PAYMET = 6,
+    PAYMENT_METHOD = 7,
   }
 }
 
